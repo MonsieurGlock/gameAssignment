@@ -1,8 +1,13 @@
 #include <SFML/Graphics.hpp>
 
+#include "mainMenu.h"
+
+
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(1920, 1088), "TestWindow", sf::Style::Close);
+    mainMenu print;
+    print.Hello();
+    sf::RenderWindow window(sf::VideoMode(1920, 1088), "TestWindow" ,sf::Style::Close);
     sf::RectangleShape back(sf::Vector2f(1920.0f, 1088.0f));
     sf::RectangleShape unit1(sf::Vector2f(20.0f, 20.0f));
     sf::Texture background, unitrifleman1;
@@ -12,19 +17,21 @@ int main()
     //////////////////////////////////
     sf::Sprite unit1sp;
     unit1sp.setTexture(unitrifleman1);
-    unit1sp.setTextureRect(sf::IntRect(200, 20, 610, 400));
+    unit1sp.setTextureRect(sf::IntRect(220, 20, 400, 400));
     /////////////////////////////
     background.loadFromFile("pic/background.png");
     back.setTexture(&background);
-    
+    unit1sp.setScale(sf::Vector2f(0.5f, .5f));
 
     while (window.isOpen()) {
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
         {
+            unit1sp.setScale(sf::Vector2f(0.5f, .5f));
             unit1sp.move(.5f, 0.f);
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
         {
+            unit1sp.setScale(sf::Vector2f(-0.5f, .5f));
             unit1sp.move(-.5f, 0.f);
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
@@ -49,4 +56,15 @@ int main()
     }
 
     return 0;
+}
+
+void map() {
+    sf::RenderWindow window(sf::VideoMode(1920, 1088), "TestWindow", sf::Style::Close);
+    sf::RectangleShape back(sf::Vector2f(1920.0f, 1088.0f));
+    sf::Texture background;
+    background.loadFromFile("pic/background.png");
+    back.setTexture(&background);
+    window.clear();
+    window.draw(back);
+    window.display();
 }
