@@ -1,4 +1,3 @@
-﻿  mainMenu.cpp
-  No man's land.cpp
-  Generating Code...
+﻿  No man's land.cpp
+D:\Programming\term1\No man\No man's land\No man's land\No man's land.cpp(103): warning C4715: 'menu': not all control paths return a value
   No man's land.vcxproj -> D:\Programming\term1\No man\No man's land\Debug\No man's land.exe
